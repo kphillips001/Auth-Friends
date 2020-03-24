@@ -4,18 +4,18 @@ import { Route, Redirect } from 'react-router-dom';
 const PrivateRoute = ({ component: Component, ...rest }) => {
 
   const token = window.localStorage.getItem('token');
-  return(
-    <Route 
+  return (
+    <Route
       {...rest}
       render={props => {
-        if(token) {
+        if (token) {
           return <Component {...props} />;
         } else {
-          return <Redirect to ="/login" />
+          return <Redirect to="/login" />;
         }
       }}
     />
   );
 };
 
-export default PrivateRoute; 
+export default PrivateRoute;
